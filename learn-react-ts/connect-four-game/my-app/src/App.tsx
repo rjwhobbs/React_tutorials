@@ -50,12 +50,29 @@ function Row(props: any){
 	)
 }
 
+function Board() {
+
+	let rows: any[] = [];
+	let i: number = 0;
+	
+	while(i < 5) {
+		rows.push(<Row />);
+		i++;
+	}
+
+	return (
+		<div>
+			{rows}
+		</div>
+	)
+}
+
 
 export default class App extends React.Component{
 
 	render() {
 		return (
-			<Row />
+			<Board />
 		)
 	}
 }
