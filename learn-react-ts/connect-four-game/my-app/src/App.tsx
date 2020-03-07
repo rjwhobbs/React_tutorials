@@ -3,21 +3,59 @@ import React from 'react';
 // import './App.css';
 import { render } from '@testing-library/react';
 
-let style = {
-	backgroundColor: 'white'
+function Circle(props: any) {
+	let style = {
+	backgroundColor: 'white',
+	border: '1px solid red',
+	borderRaduis: '100%',
+	paddingTop: '98%'
+	}
+
+	return (
+		<div style={style}></div>
+	)
+}
+
+function Cell(props: any) {
+	let style = {
+		height: 50,
+		width: 50,
+		border: '1px solid green',
+		backgroundColor: 'blue',
+	}
+
+	return (
+		<div style={style}>
+			<Circle />
+		</div>
+	)
+}
+
+function Row(props: any){
+	let style = {
+		display: 'flex',
+	}
+
+	let cells: any[] = [];
+	let i: number = 0;
+	while(i < 7) {
+		cells.push(<Cell />);
+		i++;
+	}
+
+	return (
+		<div style={style}>
+			{cells}
+		</div>
+	)
 }
 
 
 export default class App extends React.Component{
 
-	
-	
-
 	render() {
 		return (
-			<div>
-				
-			</div>
+			<Row />
 		)
 	}
 }
