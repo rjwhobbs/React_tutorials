@@ -56,8 +56,8 @@ export default class App extends React.Component<{}, AppInterface>{
 	clickHandler(id: number, details: string){
 		let arr: number[] = [0,0,0,0];
 		arr[id] = 1;
+		console.log(arr);
 		this.setState({activeArray: arr, details: details});
-		console.log(id,details);
 	}
 
 	render(){
