@@ -54,7 +54,7 @@ function Board() {
 
 	let rows: any[] = [];
 	let i: number = 0;
-	
+
 	while(i < 5) {
 		rows.push(<Row />);
 		i++;

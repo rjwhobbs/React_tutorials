@@ -5,10 +5,10 @@ export default class Button extends React.Component{
 		super(props);
 	}
 	render(){
-			return (
-				<button>
-					thing
-				</button>
-			)
+		return (
+			<button>
+				thing
+			</button>
+		)
 	}
 }
