@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>  
+	<head>       
+		<meta charset="UTF-8">       
+		<script src="https://unpkg.com/react@15/dist/react.min.js"></script>       
+		<script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>       
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+	</head>  
+		<body>
+			<div id="root"></div>
+				<script type="text/babel">
+
+					function Table(props) {
+						const {header, data} = props
+						return (
+							<table>
+								<tr>
+									{header.map(val => (
+										<th>{val}</th>
+									))}
+								</tr>
+								<tr>
+									{data.map(val =>(
+										<td>{val}</td>
+									))}
+									<button>BUY</button>
+								</tr>
+								<br />
+							</table>
+						)
+					}
+
+					function Intro() {
+							return (
+								<div>
+									<h1>Welcome to React Transportation</h1>
+									<p>The jankest way to buy cars online</p>
+								</div>
+							)
+					}
+
+					function SelectMenu() {
+							return (
+								<div>
+									<span>New Only</span>
+									<input type="checkbox" id="coding" name="interest" value="coding" />
+									<br />
+									<span>Select type</span>
+									<select>
+										<option value ="All">All</option>
+										<option value ="Cars">Cars</option>
+										<option value ="Trucks">Trucks</option>
+										<option value ="Convertibles">Convertibles</option>
+									</select>
+								</div>
+							)
+					}
+
+					function Main(props) {
+						return (
+							<div>
+								<Intro />
+								<SelectMenu />
+								<h1>Cars</h1>
+								<Table 
+									header={["Year", "Model", "Price", "Buy"]}
+									data={["2014", "D", "$18000"]}
+								/>
+								<h1>Trucks</h1>
+								<Table 
+									header={["Year", "Model", "Price", "Buy"]}
+									data={["1899", "F", "$0"]}
+								/>
+								<Table 
+									header={["Year", "Model", "Price", "Buy"]}
+									data={["2000", "J", "$19000"]}
+								/>
+								<h1>Convertables</h1>
+								<Table 
+									header={["Year", "Model", "Price", "Buy"]} 
+									data={["2099", "Z", "$1 800 000"]}
+								/>
+								<Table 
+									header={["Year", "Model", "Price", "Buy"]}
+									data={["2014", "X", "$20000"]}
+								/>
+							</div>
+						)
+					}
+
+					ReactDOM.render(
+						<Main />,
+						document.getElementById("root")
+					)    
+				</script>   
+		</body>
+</html>

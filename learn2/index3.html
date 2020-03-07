@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>  
+	<head>       
+		<meta charset="UTF-8">       
+		<script src="https://unpkg.com/react@15/dist/react.min.js"></script>       
+		<script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>       
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+	</head>  
+		<body>
+			<div id="root"></div>
+				<script type="text/babel">
+
+					class Counter extends React.Component{
+							constructor(props){
+									super(props)
+									this.state = {count:0}
+									// binding is necessary to make `this` point to the correct object
+									this.clickHandler = this.clickHandler.bind(this);
+							}
+							clickHandler(){
+								// increments the count of the state
+								// this.setState((prevState,props) => {
+								// 	return {count: prevState.count + 1}
+								// });
+								this.setState({count: this.state.count + 1});
+							}
+							render(){
+									console.log("HERE");
+									//renders a button that displays the state count
+									return <button onClick = {this.clickHandler}>{this.state.count}</button>
+							}
+					}
+
+					ReactDOM.render(
+						<Counter message="THINF"/>,
+						document.getElementById("root")
+					)    
+				</script>   
+		</body>
+</html>
