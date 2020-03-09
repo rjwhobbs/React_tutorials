@@ -3,6 +3,12 @@ import React from 'react';
 // import './App.css';
 import { render } from '@testing-library/react';
 
+interface AppInterface {
+    player: boolean;
+    cells: any;
+    winner: number;
+}
+
 function Circle(props: any) {
 	let style = {
 	backgroundColor: 'white',
@@ -25,7 +31,7 @@ function Cell(props: any) {
 	}
 
 	return (
-		<div style={style}>
+		<div style={style} onClick={() => props.handleClick(props.row, props.col)}>
 			<Circle />
 		</div>
 	)
@@ -36,27 +42,38 @@ function Row(props: any){
 		display: 'flex',
 	}
 
-	let cells: any[] = [];
+	let cellsComp: any[] = [];
 	let i: number = 0;
 	while(i < 7) {
-		cells.push(<Cell />);
+        cellsComp.push(<Cell
+                        key={i}
+                        row={props.row}
+                        col={i}
+                        cell={props.cell[i]}
+                        handleClick={props.handleClick}
+                    />);
 		i++;
 	}
 
 	return (
 		<div style={style}>
-			{cells}
+			{cellsComp}
 		</div>
 	)
 }
 
-function Board() {
+function Board(props: any) {
 
 	let rows: any[] = [];
-	let i: number = 0;
+    let i: number = 0;
 
 	while(i < 5) {
-		rows.push(<Row />);
+        rows.push(<Row 
+                    key={i} 
+                    row={i}
+                    cell={props.cells[i]}
+                    handleClick={props.handleClick}
+                    />);
 		i++;
 	}
 
@@ -68,11 +85,42 @@ function Board() {
 }
 
 
-export default class App extends React.Component{
+
+export default class App extends React.Component<{}, AppInterface>{
+    constructor(props: any) {
+        super(props);
+
+        let cells: any[] = [];
+        let i: number = 0;
+        while(i < 6) {
+            cells.push(new Array(7).fill(0));
+            i++;
+        }
+
+        this.state = {
+            player: false,
+            cells: cells,
+            winner: 0 
+        }
+        console.log("KKKK", this.state.cells);
+
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        console.log("Clicked");
+    }
 
 	render() {
 		return (
-			<Board />
+            <div>
+                <h1>Blacks turn</h1>
+                <Board 
+                    cells={this.state.cells}
+                    handleClick={this.handleClick}
+                />
+                <button>Restart</button>
+            </div>
 		)
 	}
 }
