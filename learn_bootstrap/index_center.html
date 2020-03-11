@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+		<head>
+				<!-- Required meta tags -->
+				<meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+				<!-- Bootstrap CSS -->
+				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		
+				<title>YO</title>
+			</head>
+<body>
+		<div class="container bg-faded py-3">
+				<h1 class="text-center">Centering in Bootstrap 4</h1>
+				<div class="row">
+						<div class="col text-center">use <code>.text-center</code> for display:inline elements</div>
+				</div>
+				<hr>
+				<div class="row">
+						<div class="col">
+								<div class="mx-auto w-50 p-3 bg-dark text-white text-center">
+										<span>use <code>.mx-auto</code> for display:block elements</span>
+								</div>
+						</div>
+				</div>
+				<hr>
+				<div class="row">
+						<div class="col-12">
+								<img class="mx-auto d-block" src="//placehold.it/200x150?text=mx-auto">
+						</div>
+				</div>
+				<hr>
+				<div class="row">
+						<div class="col-4 mx-auto bg-info">
+								<h6>I'm .col-4...</h6> use <code>.mx-auto</code> for grid cols
+						</div>
+				</div>
+				<hr>
+				<div class="row">
+						<div class="col-4 mx-auto">
+								<div class="card card-body mb-2">
+										<h6>I'm .col-4</h6>
+										<code>.mx-auto</code>
+								</div>
+						</div>
+						<div class="col-4 mx-auto">
+								<div class="card card-body mb-2">
+										<h6>I'm .col-4</h6>
+										<code>.mx-auto</code>
+								</div>
+						</div>
+						<div class="col-4 mx-auto">
+								<div class="card card-body mb-2">
+										<h6>I'm .col-4</h6>
+										<code>.mx-auto</code>
+								</div>
+						</div>
+						<div class="col-4 mx-auto">
+								<div class="card card-body mb-2">
+										<h6>I'm .col-4</h6>
+										<code>.mx-auto</code> center uneven grid cols
+								</div>
+						</div>
+				</div>
+				<hr>
+				<h4 class="text-center">Flexbox utils in Bootstrap 4</h4>
+				<code>.row.justify-content-between</code>
+				<div class="row justify-content-between">
+						<div class="col-3">
+								<div class="card card-body mb-2">col-3</div>
+						</div>
+						<div class="col-3">
+								<div class="card card-body mb-2">col-3</div>
+						</div>
+						<div class="col-3">
+								<div class="card card-body mb-2">col-3</div>
+						</div>
+				</div>
+				<code>.row.justify-content-around</code>
+				<div class="row justify-content-around">
+						<div class="col-4">
+								<div class="card card-body mb-2">col-4</div>
+						</div>
+						<div class="col-4">
+								<div class="card card-body mb-2">col-4</div>
+						</div>
+				</div>
+				<code>.row.justify-content-center</code>
+				<div class="row justify-content-center">
+						<div class="col-4">
+								<div class="card card-body mb-2">col-6</div>
+						</div>
+				</div>
+				<div class="row justify-content-center">
+						<div class="col-2">
+								<div class="card card-body mb-2">col-2</div>
+						</div>
+						<div class="col-2">
+								<div class="card card-body mb-2">col-2</div>
+						</div>
+				</div>
+				<div class="row justify-content-center">
+						<div class="col-7">
+								<div class="row">
+										<div class="col">
+												<div class="card card-body mb-2">col</div>
+										</div>
+										<div class="col">
+												<div class="d-flex card card-body mb-2">center</div>
+										</div>
+										<div class="col">
+												<div class="card card-body mb-2">col that is wider with content</div>
+										</div>
+								</div>
+						</div>
+				</div>
+				<h4 class="text-center">Flexbox with auto-margins</h4>
+				<code>.row</code>
+				<div class="row">
+						<div class="col-3">
+								<div class="card card-body mb-2">col-3</div>
+						</div>
+						<div class="col-3 mx-auto">
+								<div class="card card-body mb-2">col-3 <code>.mx-auto</code></div>
+						</div>
+						<div class="col-3">
+								<div class="card card-body mb-2">col-3</div>
+						</div>
+				</div>
+				<div class="row">
+						<div class="col-3">
+								<div class="card card-body mb-2">col-3 with more content</div>
+						</div>
+						<div class="col-3 mx-auto">
+								<div class="card card-body mb-2">col-3 <code>.mx-auto</code></div>
+						</div>
+						<div class="col-3">
+								<div class="card card-body mb-2">col-3</div>
+						</div>
+				</div>
+				<div class="row">
+						<div class="col-3 mr-auto">
+								<div class="card card-body mb-2">col-3 <code>.mr-auto</code></div>
+						</div>
+						<div class="col-3">
+								<div class="card card-body mb-2">col-3</div>
+						</div>
+						<div class="col-3 ml-auto">
+								<div class="card card-body mb-2">col-3 <code>.ml-auto</code></div>
+						</div>
+				</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
