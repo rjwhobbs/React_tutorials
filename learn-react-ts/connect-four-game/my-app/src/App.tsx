@@ -90,7 +90,7 @@ export default class App extends React.Component<{}, AppInterface>{
     constructor(props: any) {
         super(props);
 
-        let cells: any[] = [];
+        let cells: any[] = []; // let cells = []
         let i: number = 0;
         while(i < 6) {
             cells.push(new Array(7).fill(0));
