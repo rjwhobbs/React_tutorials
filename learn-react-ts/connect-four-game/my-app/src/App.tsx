@@ -84,8 +84,6 @@ function Board(props: any) {
 	)
 }
 
-
-
 export default class App extends React.Component<{}, AppInterface>{
     constructor(props: any) {
         super(props);
