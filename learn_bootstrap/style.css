@@ -1,3 +1,18 @@
-/* img {
-    width: 100%
-} */
+.cus-bg-1 {
+  width: 220px;
+  height: 360px;
+  border-radius: 3px;
+  border: solid 1px black;
+  background-color: white;
+}
+
+.cus-bg-2 {
+  width: 220px;
+  height: 50px;
+  border-radius: 3px;
+  border: solid 1px black;
+}
+
+.cus-margin-1 {
+  margin-left: 0px !important;
+}
