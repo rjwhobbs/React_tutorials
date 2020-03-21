@@ -3,8 +3,9 @@ import React from 'react';
 // import './App.css';
 import { render } from '@testing-library/react';
 import { tsCallSignatureDeclaration } from '@babel/types';
+// import checker from "./lib/checker";
 
-interface AppInterface {
+interface AppStates {
     player: boolean;
     cells: any;
     winner: number;
@@ -13,16 +14,16 @@ interface AppInterface {
 function Circle(props: any) {
   let color: string = "white";
 
-  if (props.cell === 1) {
+  if (props.cell === 2) {
     color = "red";
-  } else if (props.cell === 2) {
+  } else if (props.cell === 1) {
     color = "black";
   }
 
 	let style = {
 	backgroundColor: color,
-	border: '1px solid red',
-	borderRaduis: '100%',
+	border: '1px solid black',
+	borderRadius: '100%',
 	paddingTop: '98%'
 	}
 
@@ -33,13 +34,11 @@ function Circle(props: any) {
 
 function Cell(props: any) {
 	let style = {
-		height: 50,
-		width: 50,
+		height: '50px',
+		width: '50px',
 		border: '1px solid green',
 		backgroundColor: 'blue',
 	}
-
-  console.log("LLLLL", props.cell);
 
 	return (
 		<div style={style} onClick={() => props.handleClick(props.row, props.col)}>
@@ -56,16 +55,17 @@ function Row(props: any){
 	let cellsComp: any[] = [];
 	let i: number = 0;
 	while(i < 7) {
-    cellsComp.push(<Cell
-                    key={i}
-                    row={props.row}
-                    col={i}
-                    cell={props.cell[i]}
-                    handleClick={props.handleClick}
-                  />);
+    cellsComp.push(
+      <Cell
+        key={i}
+        row={props.row}
+        col={i}
+        cell={props.cell[i]}
+        handleClick={props.handleClick}
+      />);
 		i++;
-	}
-
+  }
+  
 	return (
 		<div style={style}>
 			{cellsComp}
@@ -76,16 +76,16 @@ function Row(props: any){
 function Board(props: any) {
 
 	let rows: any[] = [];
-  let i: number = 0;
+  let i: number = 5;
 
-	while(i < 5) {
+	while(i >= 0) {
     rows.push(<Row 
                 key={i} 
                 row={i}
                 cell={props.cells[i]}
                 handleClick={props.handleClick}
                 />);
-		i++;
+		i--;
 	}
 
 	return (
@@ -95,7 +95,7 @@ function Board(props: any) {
 	)
 }
 
-export default class App extends React.Component<{}, AppInterface>{
+export default class App extends React.Component<{}, AppStates>{
     constructor(props: any) {
         super(props);
 
@@ -111,23 +111,170 @@ export default class App extends React.Component<{}, AppInterface>{
             cells: cells,
             winner: 0 
         }
-        console.log("hghghggh", this.state.cells);
-
+        console.log(cells);
         this.handleClick = this.handleClick.bind(this);
     }
 
+    horzCheck(row: number, col: number) {
+      let temp: number = this.state.cells[row][col];
+      let check: number = 0;
+      let i: number = 0;
+      let j: number = 0;
+
+      while (i < 4 && col < 4 && row < 6) {
+        // console.log("Horz", j++);
+        if (temp === this.state.cells[row][col + i] && temp !== 0) {
+          check++;
+          i++;
+        } else {
+          col++;
+          temp = this.state.cells[row][col];
+          check = 0;
+          i = 0;
+        }
+      }
+      return check;
+    }
+
+    vertCheck(row: number, col: number){
+      let temp: number = this.state.cells[row][col];
+      let check: number = 0;
+      let i: number = 0;
+
+      while (i < 4 && col < 7 && row < 3) {
+        if (temp === this.state.cells[row + i][col] && temp !== 0) {
+          check++;
+          i++;
+        } else {
+          row++;
+          temp = this.state.cells[row][col];
+          check = 0;
+          i = 0;
+        }
+      }
+      return check;
+    }
+
+    diagRightChecker() {
+      let row: number = 0; 
+      let col: number = 0;
+      let temp: number = this.state.cells[row][col];
+      let check: number = 0;
+      let i: number = 0;
+      let j: number = 0;
+
+      while (i < 4 && col < 4 && row < 3) {
+        console.log("DR", j++);
+        if (temp === this.state.cells[row + i][col + i] && temp !== 0){
+          console.log("here");
+          check++;
+          i++;
+        } else {
+          row++;
+          temp = this.state.cells[row][col];
+          check = 0;
+          i = 0;
+        }
+        if (row === 3 && col !== 4) {
+          row = 0;
+          col++;
+          temp = this.state.cells[row][col];
+        }
+      }
+      return check;
+    }
+
+    diagLeftChecker() {
+      let row: number = 0; 
+      let col: number = 6;
+      let temp: number = this.state.cells[row][col];
+      let check: number = 0;
+      let i: number = 0;
+
+      while (i < 4 && col > 2 && row < 3) {
+        if (temp === this.state.cells[row + i][col - i] && temp !== 0){
+          check++;
+          i++;
+        } else {
+          row++;
+          temp = this.state.cells[row][col];
+          check = 0;
+          i = 0;
+        }
+        if (row === 3 && col !== 2) {
+          row = 0;
+          col--;
+          temp = this.state.cells[row][col];
+        }
+      }
+      return check;
+    }
+
+    checker() {
+      let i: number = 0;
+      while (i < 6){
+        if (this.horzCheck(i, 0) === 4) {
+          return 1;
+        }
+        i++;
+      }
+      i = 0;
+      while (i < 7) {
+        if (this.vertCheck(0, i) === 4) {
+          return 1;
+        }
+        i++;
+      }
+      if (this.diagRightChecker() === 4) {
+        console.log("DR");
+        return 1;
+      }
+      if (this.diagLeftChecker() === 4) {
+        console.log("DL");
+        return 1;
+      }
+      return 0;
+    }
+
+    findAvailRow(col: number) {
+      let i: number = 0;
+      while (i < 6) {
+        if (this.state.cells[i][col] === 0) {
+          return i;
+        }
+        i++;
+      }
+      return -1;
+    }
+
     handleClick(row: number, col: number) {
-        console.log("Clicked", row, col);
+        let temp: any[] = [];
+        let i: number = 0;
+
+        while (i < 6) {
+          temp.push(this.state.cells[i].slice());
+          i++;
+        }
+        let newRow: number = this.findAvailRow(col);
+        if (newRow !== -1) {
+          temp[newRow][col] = this.state.player ? 1 : 2;
+          this.setState({cells: temp, player: !this.state.player}, () => {
+            if (this.checker() === 1) {
+              console.log("!!!!!!winner!!!!!!!");
+            }
+          });
+        }
     }
 
 	render() {
 		return (
             <div>
-                <h1>Blacks turn</h1>
+                <h1>{this.state.player ? "Blacks turn" : "Reds Turn"}</h1>
                 <Board 
                     cells={this.state.cells}
                     handleClick={this.handleClick}
                 />
+                {}
                 <button>Restart</button>
             </div>
 		)
