@@ -24,7 +24,7 @@ function Circle(props: any) {
     backgroundColor: color,
     border: '1px solid black',
     borderRadius: '100%',
-    paddingTop: '98%'
+    paddingTop: '97%'
 	}
 
 	return (
@@ -37,7 +37,7 @@ function Cell(props: any) {
 		height: '50px',
 		width: '50px',
 		border: '1px solid green',
-		backgroundColor: 'blue',
+		backgroundColor: 'lightblue',
 	}
 
 	return (
