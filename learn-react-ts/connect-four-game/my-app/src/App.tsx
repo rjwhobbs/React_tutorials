@@ -17,7 +17,7 @@ function Circle(props: any) {
   if (props.cell === 2) {
     color = "red";
   } else if (props.cell === 1) {
-    color = "black";
+    color = "blue";
   }
 
 	let style = {
@@ -119,10 +119,9 @@ export default class App extends React.Component<{}, AppStates>{
       let temp: number = this.state.cells[row][col];
       let check: number = 0;
       let i: number = 0;
-      let j: number = 0;
 
-      while (i < 4 && col < 4 && row < 6) {
-        // console.log("Horz", j++);
+      while (i < 4 && col < 4) {
+        console.log("H");
         if (temp === this.state.cells[row][col + i] && temp !== 0) {
           check++;
           i++;
@@ -141,96 +140,81 @@ export default class App extends React.Component<{}, AppStates>{
       let check: number = 0;
       let i: number = 0;
 
-      while (i < 4 && col < 7 && row < 3) {
-        if (temp === this.state.cells[row + i][col] && temp !== 0) {
+      while (i < 4 && col < 7 && row > 2) {
+        console.log("V");
+        if (temp === this.state.cells[row - i][col] && temp !== 0) {
           check++;
-          i++;
-        } else {
-          row++;
-          temp = this.state.cells[row][col];
-          check = 0;
-          i = 0;
         }
+        i++;
       }
       return check;
     }
 
-    diagRightChecker() {
-      let row: number = 0; 
-      let col: number = 0;
-      let temp: number = this.state.cells[row][col];
-      let check: number = 0;
-      let i: number = 0;
-      let j: number = 0;
-
-      while (i < 4 && col < 4 && row < 3) {
-        console.log("DR", j++);
-        if (temp === this.state.cells[row + i][col + i] && temp !== 0){
-          console.log("here");
-          check++;
-          i++;
-        } else {
-          row++;
-          temp = this.state.cells[row][col];
-          check = 0;
-          i = 0;
-        }
-        if (row === 3 && col !== 4) {
-          row = 0;
-          col++;
-          temp = this.state.cells[row][col];
-        }
-      }
-      return check;
-    }
-
-    diagLeftChecker() {
-      let row: number = 0; 
-      let col: number = 6;
+    diagRightChecker(row: number, col: number) {
+      let tRow: number = row; 
+      let tCol: number = col;
       let temp: number = this.state.cells[row][col];
       let check: number = 0;
       let i: number = 0;
 
-      while (i < 4 && col > 2 && row < 3) {
-        if (temp === this.state.cells[row + i][col - i] && temp !== 0){
+      while (tRow > 0 && tCol > 0) {
+        tRow--;
+        tCol--;
+      }
+
+      while (i < 4 && tRow < 3 && tCol < 7) {
+        if (temp === this.state.cells[tRow + i][tCol + i] && temp !== 0){
           check++;
           i++;
         } else {
-          row++;
-          temp = this.state.cells[row][col];
+          tRow++;
+          tCol++;
           check = 0;
           i = 0;
-        }
-        if (row === 3 && col !== 2) {
-          row = 0;
-          col--;
-          temp = this.state.cells[row][col];
         }
       }
       return check;
     }
 
-    checker() {
+    diagLeftChecker(row: number, col: number) {
+      let tRow: number = row; 
+      let tCol: number = col;
+      let temp: number = this.state.cells[row][col];
+      let check: number = 0;
       let i: number = 0;
-      while (i < 6){
-        if (this.horzCheck(i, 0) === 4) {
-          return 1;
-        }
-        i++;
+
+      while (tRow > 0 && tCol < 6) {
+        tRow--;
+        tCol++;
       }
-      i = 0;
-      while (i < 7) {
-        if (this.vertCheck(0, i) === 4) {
-          return 1;
+
+      while (i < 4 && tCol > 0 && tRow < 3) {
+        if (temp === this.state.cells[tRow + i][tCol - i] && temp !== 0){
+          check++;
+          i++;
+        } else {
+          tRow++;
+          tCol--;
+          check = 0;
+          i = 0;
         }
-        i++;
       }
-      if (this.diagRightChecker() === 4) {
-        console.log("DR");
+      return check;
+    }
+
+    checker(row: number, col: number) {
+      let i: number = 0;
+      if (this.horzCheck(row, 0) === 4) {
         return 1;
       }
-      if (this.diagLeftChecker() === 4) {
-        console.log("DL");
+      i = 0;
+      if (this.vertCheck(row, col) === 4) {
+        return 1;
+      }
+      if (this.diagRightChecker(row, col) === 4) {
+        return 1;
+      }
+      if (this.diagLeftChecker(row, col) === 4) {
         return 1;
       }
       return 0;
@@ -259,7 +243,7 @@ export default class App extends React.Component<{}, AppStates>{
         if (newRow !== -1) {
           temp[newRow][col] = this.state.player ? 1 : 2;
           this.setState({cells: temp, player: !this.state.player}, () => {
-            if (this.checker() === 1) {
+            if (this.checker(newRow, col) === 1) {
               console.log("!!!!!!winner!!!!!!!");
             }
           });
