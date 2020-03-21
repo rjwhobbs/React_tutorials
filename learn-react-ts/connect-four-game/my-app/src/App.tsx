@@ -21,10 +21,10 @@ function Circle(props: any) {
   }
 
 	let style = {
-	backgroundColor: color,
-	border: '1px solid black',
-	borderRadius: '100%',
-	paddingTop: '98%'
+    backgroundColor: color,
+    border: '1px solid black',
+    borderRadius: '100%',
+    paddingTop: '98%'
 	}
 
 	return (
