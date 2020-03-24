@@ -5,6 +5,7 @@ import { render } from '@testing-library/react';
 import { tsCallSignatureDeclaration } from '@babel/types';
 // import horzCheck from "./lib/checkerLib";
 import helper from "./lib/checkerLib";
+import { any } from 'prop-types';
 
 interface AppStates {
     player: boolean;
@@ -144,6 +145,9 @@ export default class App extends React.Component<{}, AppStates>{
     }
 
     handleClick(row: number, col: number) {
+      if (this.state.winner > 0) {
+        return ;
+      }
         let temp: any[] = [];
         let i: number = 0;
 
@@ -156,22 +160,40 @@ export default class App extends React.Component<{}, AppStates>{
           temp[newRow][col] = this.state.player ? 1 : 2;
           this.setState({cells: temp, player: !this.state.player}, () => {
             if (this.checker(newRow, col, this.state.cells) === 1) {
-              console.log("!!!!!!winner!!!!!!!");
+              this.setState({winner: this.state.player ? 2 : 1}, () => {
+                
+              });
             }
           });
         }
     }
 
+  restart() {
+    let cells: any[] = [];
+    let i: number = 0;
+    while (i < 6 ) {
+      cells.push(new Array(7).fill(0));
+      i++;
+    }
+    this.setState({player: false, cells: cells, winner: 0});
+  }
+
 	render() {
+    let Header: any;
+    if (this.state.winner > 0) {
+      Header = <h1>{this.state.winner === 1 ? "Black Wins!!!" : "Red Wins!!!"}</h1>
+    } else {
+      Header = <h1>{this.state.player ? "Blacks turn" : "Reds Turn"}</h1>;
+    }
 		return (
-            <div>
-                <h1>{this.state.player ? "Blacks turn" : "Reds Turn"}</h1>
-                <Board 
-                    cells={this.state.cells}
-                    handleClick={this.handleClick}
-                />
-                <button>Restart</button>
-            </div>
+      <div>
+        {Header}
+          <Board 
+              cells={this.state.cells}
+              handleClick={this.handleClick}
+          />
+        <button onClick={() => this.restart()}>Restart</button>
+      </div>
 		)
 	}
 }
