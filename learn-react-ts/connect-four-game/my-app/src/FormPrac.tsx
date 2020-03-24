@@ -5,6 +5,7 @@ interface FormPracStates {
   userIn: string;
   isChecked: boolean;
   userText: string;
+  selected: string;
 }
 
 export default class FormPrac extends React.Component<{}, FormPracStates>{
@@ -13,11 +14,13 @@ export default class FormPrac extends React.Component<{}, FormPracStates>{
     this.state = {
       userIn: "",
       isChecked: false,
-      userText: ""
+      userText: "",
+      selected: "apple",
     }
     this.handleInput = this.handleInput.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.handleText = this.handleText.bind(this);
+    this.handleSelection = this.handleSelection.bind(this);
   }
 
   handleInput(e: any) {
@@ -32,11 +35,20 @@ export default class FormPrac extends React.Component<{}, FormPracStates>{
     this.setState({userText: e.target.value});
   }
 
+  handleSelection(e: any) {
+    this.setState({selected: e.target.value});
+  }
+
   render() {
     let userIn = this.state.userIn;
     let checked: string = "";
     let text = this.state.userText;
     let isChecked = this.state.isChecked;
+    let userSelection = this.state.selected;
+    let arr = ["apple","banana","carrot","donuts"];
+    let options = arr.map((item, index) => {
+      return <option key={index} value={item}>{item}</option>
+    })
     isChecked ? checked = "Checked" : checked = "Unchecked";
     return(
       <>
@@ -46,6 +58,10 @@ export default class FormPrac extends React.Component<{}, FormPracStates>{
         <p>{checked}</p>
         <textarea cols={60} rows={7} onChange={(e) => this.handleText(e)}></textarea>
         <p>The stuff you typed: {text}</p>
+        <select value={userSelection} onChange={(e) => this.handleSelection(e)}>
+          {options}
+        </select>
+        <p>{userSelection}</p>
       </>
     )
   }
