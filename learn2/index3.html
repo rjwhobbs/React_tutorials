@@ -19,7 +19,7 @@
 							}
 							clickHandler(){
 								// increments the count of the state
-								// this.setState((prevState,props) => {
+								// this.setState((prevState,props) => {  //mod 2 State, life cycle ..... state
 								// 	return {count: prevState.count + 1}
 								// });
 								this.setState({count: !this.state.count});
@@ -27,7 +27,9 @@
 							render(){
 									console.log("HERE");
 									//renders a button that displays the state count
-									return <button onClick = {this.clickHandler}>{this.state.count}</button>
+									return (
+										<button onClick = {this.clickHandler}>{this.state.count}</button>
+										)
 							}
 					}
 

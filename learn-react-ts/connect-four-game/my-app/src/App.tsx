@@ -11,6 +11,7 @@ interface AppStates {
     player: boolean;
     cells: any;
     winner: number;
+    test: any;
 }
 
 function Circle(props: any) {
@@ -111,7 +112,8 @@ export default class App extends React.Component<{}, AppStates>{
         this.state = {
             player: false,
             cells: cells,
-            winner: 0 
+            winner: 0,
+            test: "" 
         }
         this.handleClick = this.handleClick.bind(this);
     }
@@ -159,9 +161,7 @@ export default class App extends React.Component<{}, AppStates>{
           temp[newRow][col] = this.state.player ? 1 : 2;
           this.setState({cells: temp, player: !this.state.player}, () => {
             if (this.checker(newRow, col, this.state.cells) === 1) {
-              this.setState({winner: this.state.player ? 2 : 1}, () => {
-                
-              });
+              this.setState({winner: this.state.player ? 2 : 1})
             }
           });
         }
