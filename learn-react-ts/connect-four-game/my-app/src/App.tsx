@@ -3,7 +3,8 @@ import React from 'react';
 // import './App.css';
 import { render } from '@testing-library/react';
 import { tsCallSignatureDeclaration } from '@babel/types';
-// import checker from "./lib/checker";
+// import horzCheck from "./lib/checkerLib";
+import helper from "./lib/checkerLib";
 
 interface AppStates {
     player: boolean;
@@ -115,106 +116,17 @@ export default class App extends React.Component<{}, AppStates>{
         this.handleClick = this.handleClick.bind(this);
     }
 
-    horzCheck(row: number, col: number) {
-      let temp: number = this.state.cells[row][col];
-      let check: number = 0;
-      let i: number = 0;
-
-      while (i < 4 && col < 4) {
-        console.log("H");
-        if (temp === this.state.cells[row][col + i] && temp !== 0) {
-          check++;
-          i++;
-        } else {
-          col++;
-          temp = this.state.cells[row][col];
-          check = 0;
-          i = 0;
-        }
-      }
-      return check;
-    }
-
-    vertCheck(row: number, col: number){
-      let temp: number = this.state.cells[row][col];
-      let check: number = 0;
-      let i: number = 0;
-
-      while (i < 4 && col < 7 && row > 2) {
-        console.log("V");
-        if (temp === this.state.cells[row - i][col] && temp !== 0) {
-          check++;
-        }
-        i++;
-      }
-      return check;
-    }
-
-    diagRightChecker(row: number, col: number) {
-      let tRow: number = row; 
-      let tCol: number = col;
-      let temp: number = this.state.cells[row][col];
-      let check: number = 0;
-      let i: number = 0;
-
-      while (tRow > 0 && tCol > 0) {
-        tRow--;
-        tCol--;
-      }
-
-      while (i < 4 && tRow < 3 && tCol < 7) {
-        if (temp === this.state.cells[tRow + i][tCol + i] && temp !== 0){
-          check++;
-          i++;
-        } else {
-          tRow++;
-          tCol++;
-          check = 0;
-          i = 0;
-        }
-      }
-      return check;
-    }
-
-    diagLeftChecker(row: number, col: number) {
-      let tRow: number = row; 
-      let tCol: number = col;
-      let temp: number = this.state.cells[row][col];
-      let check: number = 0;
-      let i: number = 0;
-
-      while (tRow > 0 && tCol < 6) {
-        tRow--;
-        tCol++;
-      }
-
-      while (i < 4 && tCol > 0 && tRow < 3) {
-        if (temp === this.state.cells[tRow + i][tCol - i] && temp !== 0){
-          check++;
-          i++;
-        } else {
-          tRow++;
-          tCol--;
-          check = 0;
-          i = 0;
-        }
-      }
-      return check;
-    }
-
-    checker(row: number, col: number) {
-      let i: number = 0;
-      if (this.horzCheck(row, 0) === 4) {
+    checker(row: number, col: number, cells: any) {
+      if (helper.horzCheck(row, 0, cells) === 4) {
         return 1;
       }
-      i = 0;
-      if (this.vertCheck(row, col) === 4) {
+      if (helper.vertCheck(row, col, cells) === 4) {
         return 1;
       }
-      if (this.diagRightChecker(row, col) === 4) {
+      if (helper.diagRightChecker(row, col, cells) === 4) {
         return 1;
       }
-      if (this.diagLeftChecker(row, col) === 4) {
+      if (helper.diagLeftChecker(row, col, cells) === 4) {
         return 1;
       }
       return 0;
@@ -243,7 +155,7 @@ export default class App extends React.Component<{}, AppStates>{
         if (newRow !== -1) {
           temp[newRow][col] = this.state.player ? 1 : 2;
           this.setState({cells: temp, player: !this.state.player}, () => {
-            if (this.checker(newRow, col) === 1) {
+            if (this.checker(newRow, col, this.state.cells) === 1) {
               console.log("!!!!!!winner!!!!!!!");
             }
           });
@@ -258,7 +170,6 @@ export default class App extends React.Component<{}, AppStates>{
                     cells={this.state.cells}
                     handleClick={this.handleClick}
                 />
-                {}
                 <button>Restart</button>
             </div>
 		)
