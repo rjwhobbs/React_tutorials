@@ -113,7 +113,6 @@ export default class App extends React.Component<{}, AppStates>{
             cells: cells,
             winner: 0 
         }
-        console.log(cells);
         this.handleClick = this.handleClick.bind(this);
     }
 
