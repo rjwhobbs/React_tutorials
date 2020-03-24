@@ -6,6 +6,7 @@ interface FormPracStates {
   isChecked: boolean;
   userText: string;
   selected: string;
+  inputName: string;
 }
 
 export default class FormPrac extends React.Component<{}, FormPracStates>{
@@ -16,11 +17,13 @@ export default class FormPrac extends React.Component<{}, FormPracStates>{
       isChecked: false,
       userText: "",
       selected: "apple",
+      inputName: ""
     }
     this.handleInput = this.handleInput.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.handleText = this.handleText.bind(this);
     this.handleSelection = this.handleSelection.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleInput(e: any) {
@@ -39,8 +42,13 @@ export default class FormPrac extends React.Component<{}, FormPracStates>{
     this.setState({selected: e.target.value});
   }
 
+  handleChange(e: any) {
+    this.setState({inputName: e.target.value})
+  }
+
   render() {
     let userIn = this.state.userIn;
+    let inputName = this.state.inputName;
     let checked: string = "";
     let text = this.state.userText;
     let isChecked = this.state.isChecked;
@@ -62,6 +70,12 @@ export default class FormPrac extends React.Component<{}, FormPracStates>{
           {options}
         </select>
         <p>{userSelection}</p>
+        <form>
+          {/* How come I can just call the function here with out passing anything 
+          like the others? */}
+          <input type="text" value={inputName} onChange={this.handleChange}/>
+        </form>
+        <p>{inputName}</p>
       </>
     )
   }
