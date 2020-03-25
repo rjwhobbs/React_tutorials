@@ -72,7 +72,8 @@ export default class FormPrac extends React.Component<{}, FormPracStates>{
         <p>{userSelection}</p>
         <form>
           {/* How come I can just call the function here with out passing anything 
-          like the others? */}
+          like the others? So apparently this is the same as the above arrow
+          functions*/}
           <input type="text" value={inputName} onChange={this.handleChange}/>
         </form>
         <p>{inputName}</p>
