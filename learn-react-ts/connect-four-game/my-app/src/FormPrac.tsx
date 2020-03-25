@@ -56,7 +56,7 @@ export default class FormPrac extends React.Component<{}, FormPracStates>{
     let arr = ["apple","banana","carrot","donuts"];
     let options = arr.map((item, index) => {
       return <option key={index} value={item}>{item}</option>
-    })
+    });
     isChecked ? checked = "Checked" : checked = "Unchecked";
     return(
       <>
