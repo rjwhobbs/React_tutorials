@@ -12,7 +12,7 @@ export default class DynamicArrayPrac extends React.Component<{}, DynamicArrayPr
     super(props);
 
     let topicArr: any[] = [];
-    topicArr.push(new Array);
+    // topicArr.push(new Array());c // Dangerous as Array can be reasigned
 
     this.state = {
       topicArr: [],
@@ -20,21 +20,17 @@ export default class DynamicArrayPrac extends React.Component<{}, DynamicArrayPr
     }
   }
 
-
-
   userSubmit = () => {
     let test: string = this.state.userInput + "X"
     this.setState({userInput: test}, () => {
       let temp: any[] = [...this.state.topicArr];
       temp.push(this.state.userInput);
-      console.log("TEST", temp, this.state.topicArr);
       this.setState({topicArr: temp});
     });
   }
 
   render() {
-    let arr = this.state.topicArr;
-    let list = arr.map((item: any, index: any) => {
+    let list = this.state.topicArr.map((item: any, index: any) => {
       return <p key={index}>{item}</p>
     });
     return (
