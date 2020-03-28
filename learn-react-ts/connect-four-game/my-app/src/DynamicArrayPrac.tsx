@@ -23,6 +23,7 @@ export default class DynamicArrayPrac extends React.Component<{}, DynamicArrayPr
   }
 
   userSubmit = () => {
+    console.log("Clicked");
     let userInput: string = this.state.userInput + "X"
 
     const newTopic = {
@@ -37,8 +38,10 @@ export default class DynamicArrayPrac extends React.Component<{}, DynamicArrayPr
     });
   }
 
-  removeTopic = (id: number) => {
+  removeTopic = (id: string) => {
+    console.log("XXX", this);
     let temp: any[] = this.state.topicArr.filter(((item: any) => item.id !== id));
+    this.setState({topicArr: temp});
   }
 
   render() {
@@ -46,7 +49,7 @@ export default class DynamicArrayPrac extends React.Component<{}, DynamicArrayPr
       <div>
         <button onClick={this.userSubmit}>Press This</button>
         <br/>
-        <TopicList topicArr={this.state.topicArr} />
+        <TopicList topicArr={this.state.topicArr} removeTopic={this.removeTopic} />
       </div>
     )
   }
