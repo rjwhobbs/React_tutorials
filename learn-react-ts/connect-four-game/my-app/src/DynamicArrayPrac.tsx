@@ -1,4 +1,6 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import TopicList from './lib/TopicList';
 
 interface DynamicArrayPracStates {
   topicArr: any;
@@ -15,29 +17,36 @@ export default class DynamicArrayPrac extends React.Component<{}, DynamicArrayPr
     // topicArr.push(new Array());c // Dangerous as Array can be reasigned
 
     this.state = {
-      topicArr: [],
+      topicArr: topicArr,
       userInput: ""
     }
   }
 
   userSubmit = () => {
-    let test: string = this.state.userInput + "X"
-    this.setState({userInput: test}, () => {
+    let userInput: string = this.state.userInput + "X"
+
+    const newTopic = {
+      id: uuidv4(),
+      topic: userInput
+    }
+
+    this.setState({userInput: userInput}, () => {
       let temp: any[] = [...this.state.topicArr];
-      temp.push(this.state.userInput);
+      temp.push(newTopic);
       this.setState({topicArr: temp});
     });
   }
 
+  removeTopic = (id: number) => {
+    let temp: any[] = this.state.topicArr.filter(((item: any) => item.id !== id));
+  }
+
   render() {
-    let list = this.state.topicArr.map((item: any, index: any) => {
-      return <p key={index}>{item}</p>
-    });
     return (
       <div>
         <button onClick={this.userSubmit}>Press This</button>
         <br/>
-        {list}
+        <TopicList topicArr={this.state.topicArr} />
       </div>
     )
   }
