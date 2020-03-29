@@ -1,6 +1,7 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import TopicList from './lib/TopicList';
+import _ from "lodash";
 
 interface DynamicArrayPracStates {
   topicArr: any;
@@ -34,7 +35,8 @@ export default class DynamicArrayPrac extends React.Component<{}, DynamicArrayPr
 
     const newTopic = {
       id: uuidv4(),
-      topic: userInput
+      topic: userInput,
+      votes: 0
     }
 
     this.setState({userInput: userInput, inputValue: ""}, () => {
@@ -54,7 +56,9 @@ export default class DynamicArrayPrac extends React.Component<{}, DynamicArrayPr
     let i: number = 0;
     while (i < len) {
       if (id === this.state.topicArr[i].id) {
-        console.log("here", this.state.topicArr[i].topic);
+        let temp = _.cloneDeep(this.state.topicArr[i]); 
+        temp.votes += 1;
+        // this.setState({topicArr[i]: temp});
         return ;
       }
       i++;
