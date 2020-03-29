@@ -5,6 +5,7 @@ import TopicList from './lib/TopicList';
 interface DynamicArrayPracStates {
   topicArr: any;
   userInput: string;
+  inputValue: string;
 }
 
 
@@ -18,20 +19,25 @@ export default class DynamicArrayPrac extends React.Component<{}, DynamicArrayPr
 
     this.state = {
       topicArr: topicArr,
-      userInput: ""
+      userInput: "",
+      inputValue: "",
     }
   }
 
+  handleInput = (e: any) => {
+    let userInput = e.target.value;
+    this.setState({userInput: userInput, inputValue: userInput});
+  }
+
   userSubmit = () => {
-    console.log("Clicked");
-    let userInput: string = this.state.userInput + "X"
+    let userInput = this.state.userInput;
 
     const newTopic = {
       id: uuidv4(),
       topic: userInput
     }
 
-    this.setState({userInput: userInput}, () => {
+    this.setState({userInput: userInput, inputValue: ""}, () => {
       let temp: any[] = [...this.state.topicArr];
       temp.push(newTopic);
       this.setState({topicArr: temp});
@@ -39,15 +45,16 @@ export default class DynamicArrayPrac extends React.Component<{}, DynamicArrayPr
   }
 
   removeTopic = (id: string) => {
-    console.log("XXX", this);
     let temp: any[] = this.state.topicArr.filter(((item: any) => item.id !== id));
     this.setState({topicArr: temp});
   }
 
   render() {
+    let inputValue = this.state.inputValue;
     return (
       <div>
-        <button onClick={this.userSubmit}>Press This</button>
+        <input type="text" value={inputValue} onChange={this.handleInput}/>
+        <button onClick={this.userSubmit}>Submit</button>
         <br/>
         <TopicList topicArr={this.state.topicArr} removeTopic={this.removeTopic} />
       </div>
