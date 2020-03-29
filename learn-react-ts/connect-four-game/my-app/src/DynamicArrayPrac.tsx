@@ -6,9 +6,8 @@ interface DynamicArrayPracStates {
   topicArr: any;
   userInput: string;
   inputValue: string;
+  votes: number;
 }
-
-
 
 export default class DynamicArrayPrac extends React.Component<{}, DynamicArrayPracStates> {
   constructor(props: any) {
@@ -21,6 +20,7 @@ export default class DynamicArrayPrac extends React.Component<{}, DynamicArrayPr
       topicArr: topicArr,
       userInput: "",
       inputValue: "",
+      votes: 0
     }
   }
 
@@ -49,6 +49,18 @@ export default class DynamicArrayPrac extends React.Component<{}, DynamicArrayPr
     this.setState({topicArr: temp});
   }
 
+  upVote = (id: string) => {
+    let len: number = this.state.topicArr.length;
+    let i: number = 0;
+    while (i < len) {
+      if (id === this.state.topicArr[i].id) {
+        console.log("here", this.state.topicArr[i].topic);
+        return ;
+      }
+      i++;
+    }
+  }
+
   render() {
     let inputValue = this.state.inputValue;
     return (
@@ -56,7 +68,10 @@ export default class DynamicArrayPrac extends React.Component<{}, DynamicArrayPr
         <input type="text" value={inputValue} onChange={this.handleInput}/>
         <button onClick={this.userSubmit}>Submit</button>
         <br/>
-        <TopicList topicArr={this.state.topicArr} removeTopic={this.removeTopic} />
+        <TopicList 
+          topicArr={this.state.topicArr} 
+          removeTopic={this.removeTopic} 
+          upVote={this.upVote}/>
       </div>
     )
   }
