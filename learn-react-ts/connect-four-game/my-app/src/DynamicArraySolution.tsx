@@ -30,9 +30,9 @@ function Post(props: any) {
   return (
     <div style={style}>
       <PostButton label="X" handleClick={props.removeItem}/>
-      <PostText text={props.title} width="200" />
+      <PostText text={props.title} width="200px" />
       <PostButton label="+" handleClick={props.incScore}/>
-      <PostText text={props.score} width="20" />
+      <PostText text={props.score} width="20px" />
       <PostButton label="-" handleClick={props.decScore}/>
     </div>
   )
@@ -42,10 +42,10 @@ function PostList(props: any) {
   let list = props.postList.map((item: any, index: any) => {
     return (
       <Post 
-        key={index}
+        key={index} // using index here instead of a unique id?
         title={item.title}
         score={item.score} 
-        incScore={() => props.updateScore(index, 1)}
+        incScore={() => props.updateScore(index, 1)} // So the attributes are an actaul function
         decScore={() => props.updateScore(index, -1)}
         removeItem={() => props.removeItem(index)}/>
     )
