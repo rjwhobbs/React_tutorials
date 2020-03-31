@@ -45,7 +45,7 @@ function PostList(props: any) {
         key={index} // using index here instead of a unique id?
         title={item.title}
         score={item.score} 
-        incScore={() => props.updateScore(index, 1)} // So the attributes are an actaul function
+        incScore={() => props.updateScore(index, 1)} // So the attributes are an actual function/callback
         decScore={() => props.updateScore(index, -1)}
         removeItem={() => props.removeItem(index)}/>
     )
