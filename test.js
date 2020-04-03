@@ -60,5 +60,29 @@ class Person {
 let arr = [1,2,3,4,5];
 let arrX = [...arr];
 arrX.push(99);
-console.log(arr);
-console.log(arrX);
+// console.log(arr);
+// console.log(arrX);
+
+const za_format_two = (number) => {
+	if (number.toString().charAt(0) == 'R') {
+		number = number.slice(1);
+	}
+
+	number = parseInt(number).toFixed(2);
+	number += '';
+	var x = number.split('.');
+	var x1 = x[0];
+	var x2 = x.length > 1 ? '.' + x[1] : '';
+	var rgx = /(\d+)(\d{3})/;
+	while (rgx.test(x1)) {
+        console.log("XXX");
+        x1 = x1.replace(rgx, '$1' + ' ' + '$2');
+        console.log(x1);
+	}
+	return 'R' + x1 + x2;
+
+}
+
+let x = za_format_two(100);
+
+console.log(x);
