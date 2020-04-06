@@ -17,7 +17,7 @@
   margin-left: 0px !important;
 }
 
-.cus-bg-big {
+.cbg-big {
   width: 100%;
   height: 360px;
   border-radius: 3px;
@@ -25,9 +25,14 @@
   background-color: white;
 }
 
-.cus-bg-med {
+.cbg-med {
   width: 100%;
   height: 50px;
   border-radius: 3px;
-  border: solid 1px black;
+  border: solid 1px blue;
+}
+
+.cbg {
+  border-radius: 3px;
+  border: solid 1px blue;
 }
