@@ -25,5 +25,6 @@ p {
 }
 
 p {
-  color: red
+  color: red;
+  padding: 10px 15px 15px 5px; /* Starts at top */
 }
