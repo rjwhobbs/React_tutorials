@@ -69,6 +69,7 @@ class DynamicArraySolution extends Component<{}, DynArrStates>{
       value: "",
       items: []
     }
+    // this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange = (e: any) => {
