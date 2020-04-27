@@ -1,0 +1,6 @@
+.box::before {
+  content: "This should show before the other content."
+}  
+.box::after {
+  content: "Ma bru"
+}  
