@@ -1,0 +1,15 @@
+/* To only target
+those in the class alert */
+
+span[class~="stop"].alert {
+  background-color: red
+}
+    
+span[class~="go"].alert {
+  background-color: green
+}
+
+tr:nth-child(2n){
+  background-color: #333;
+  color: white;
+}

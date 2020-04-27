@@ -1,0 +1,20 @@
+p, 
+ul {
+  border: 2px solid rebeccapurple;
+}
+
+span,
+li {
+  border: 2px solid blue;
+}
+
+/* Without inline-flex the next elements would be on a line break */
+ul {
+  display: inline-flex; 
+  list-style: none;
+  padding: 0;
+} 
+
+.inline {
+  display: inline;
+}
