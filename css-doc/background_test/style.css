@@ -1,0 +1,15 @@
+.box {
+  height: 200px;
+  width: 300px;
+  padding: .5em;
+  background-image: url(star.png), url(star.png), url(star.png), url(star.png) ;
+  background-repeat: no-repeat ;
+  background-position: left 5px center, right 5px top 20px, right 5px center  , right 5px bottom 20px;
+  border: 5px solid blue;
+  display: block;
+  box-sizing: border-box;
+}
+
+h2 {
+  text-align: center
+}
