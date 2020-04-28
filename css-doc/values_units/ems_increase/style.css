@@ -1,12 +1,13 @@
 /* Okay so this is how ems work, they inheret and are relative to their parents
 rems are relative to the the root */
 
+/* So it seems to also do with the font-size property */
 html {
   font-size: 16px;
 }
 
 .ems li {
-  font-size: 1.4em;
+  font-size: 1.4em; /*change this with percentages */
 }
 
 .rems li {
