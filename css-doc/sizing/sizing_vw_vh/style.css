@@ -1,0 +1,6 @@
+/* Only visible once the user starts scrolling no matter the view port size */
+
+.test {
+  height: 100vh;
+  background-color: cornsilk;
+}
