@@ -9,11 +9,23 @@ table {
   margin-left: 10%;
   border-collapse: collapse;
   font-weight: 300;
-  
+}
+
+thead {
+  border-top: 1.5px solid lightgrey;
+}
+
+tfoot {
+  border-top: 1.5px solid lightgrey;
+  border-bottom: 1.5px solid lightgrey;
+}
+
+tfoot th {
+  text-align: right;
 }
 
 th {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 th, td {
@@ -22,7 +34,7 @@ th, td {
 } 
 
 tbody tr:nth-child(2n-1) {
-  background-color: lightgray;
+  background-color: rgb(237, 237, 237);
 }
 
 thead tr th:nth-child(2), th:nth-child(3)  {
@@ -31,4 +43,8 @@ thead tr th:nth-child(2), th:nth-child(3)  {
 
 tbody tr td:nth-child(2), td:nth-child(3) {
   text-align: right;
+}
+
+caption {
+  padding-bottom: 5px;
 }
