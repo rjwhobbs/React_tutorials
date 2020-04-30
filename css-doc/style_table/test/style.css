@@ -1,3 +1,7 @@
+:root {
+  --row-bg-color: rgb(237, 237, 237);
+}
+
 html {
   font-family: 'helvetica neue', helvetica, arial, sans-serif;
 }
@@ -34,7 +38,7 @@ th, td {
 } 
 
 tbody tr:nth-child(2n-1) {
-  background-color: rgb(237, 237, 237);
+  background-color: var(--row-bg-color);
 }
 
 thead tr th:nth-child(2), th:nth-child(3)  {
