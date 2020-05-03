@@ -10,3 +10,20 @@ p {
     margin: 10px;
     border-radius: 5px;
 }
+/* rel */
+/* .positioned {
+  position: relative;
+  background: rgba(255,84,104,.3);
+  border: 2px solid rgb(255,84,104);
+  top: 30px;
+  left: 30px;
+} */
+
+/* So absolute takes it out of the normal flow so of course other elements will fill the gap left as it's not in the normal flow  */
+.positioned {
+  position: absolute;
+  background: rgba(255,84,104,.3);
+  border: 2px solid rgb(255,84,104);
+  top: 30px;
+  left: 30px;
+}
