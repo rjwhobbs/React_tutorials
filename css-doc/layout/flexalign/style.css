@@ -1,0 +1,11 @@
+div {
+  display: flex;
+  align-items: center;
+  /* this is default  */
+  /* align-items: stretch; */
+  justify-content: space-around;
+}
+
+button:first-child {
+  align-self: flex-end;
+}
