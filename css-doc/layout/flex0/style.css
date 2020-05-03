@@ -1,0 +1,32 @@
+
+section {
+  display: flex;
+/* this wrap along with flex 200 in article make 
+cols wrap to a min width of 200px
+odd number children on overflow divide remaining 
+space equally */
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  /* flex-direction: row-reverse; */
+}
+
+/* "Each flex item will first be given 200px of the 
+available space. After that, the rest of the available 
+space will be shared out according to the proportion 
+units." */
+article {
+  flex: 1 200px;
+  padding: 10px;
+  margin: 10px;
+  background: aqua;
+  /* flex: 1; */
+}
+
+/* there are now four proportion units available in total 
+(since 1 + 1 + 2 = 4). The first two flex items have one 
+unit each so they take 1/4 of the available space each. 
+The third one has two units, so it takes up 2/4 of the 
+available space (or one-half). */
+article:nth-of-type(3) {
+  flex: 2 200px;
+}
