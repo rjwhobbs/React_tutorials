@@ -4,8 +4,15 @@ div {
   /* this is default  */
   /* align-items: stretch; */
   justify-content: space-around;
+  /* justify-content: space-between; */
+  /* justify-content: center; */
 }
 
 button:first-child {
-  align-self: flex-end;
+  /* align-self: flex-end; */
+  order: 1;
+}
+
+button:last-child {
+  order: -1;
 }
