@@ -1,0 +1,9 @@
+/* Make the display smaller to see the effect of the float wrap */
+
+.box {
+  float: left;
+  width: 150px;
+  height: 150px;
+  margin-right: 30px;
+  background-color: aqua;
+}
