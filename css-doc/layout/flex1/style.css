@@ -1,0 +1,50 @@
+.sect {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px;
+  font-size: 50px;
+}
+
+/* "Each flex item will first be given 200px of the 
+available space. After that, the rest of the available 
+space will be shared out according to the proportion 
+units." */
+.cusdiv {
+  font-size: 100%;
+  margin: 5px;
+  background: aqua;
+  padding-bottom: -3px;
+
+}
+
+/* there are now four proportion units available in total 
+(since 1 + 1 + 2 = 4). The first two flex items have one 
+unit each so they take 1/4 of the available space each. 
+The third one has two units, so it takes up 2/4 of the 
+available space (or one-half). */
+.a1 {
+  flex: 1 ;
+}
+
+.a2 {
+  flex: 9;
+  
+}
+
+
+
+.in1 {
+  font-size: 60%;
+  line-height: 1;
+}
+.in2 {
+  font-size: 28%
+}
+.test{
+  font-size: 50px;
+  line-height: .9;
+}
+
+span {
+  display: block;
+}
