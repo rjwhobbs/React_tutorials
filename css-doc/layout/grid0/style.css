@@ -1,0 +1,16 @@
+.container {
+  display: grid;
+  /* grid-template-columns: 200px 200px 200px; */
+  /* fractions */
+  /* grid-template-columns: 2fr 1fr 1fr; */
+  /* smart ass */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /* grid-template-columns: repeat(3, 1fr); */
+  /* sets column and row gap */
+  /* grid-gap is for now just an alias */
+  grid-gap: 20px;
+  /* Fixed size */
+  /* grid-auto-rows: 100px; */
+  grid-auto-rows: minmax(100px, auto);
+  gap: 20px;
+}
