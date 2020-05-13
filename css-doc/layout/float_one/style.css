@@ -16,3 +16,17 @@ body {
   padding: 1em;
 }
 
+/* Line boxes are the boxes that wrap each line of text. You can see the 
+difference between line boxes and their containing block if you float an 
+item and then follow it by a block that has a background color.
+
+In the following example, the line boxes following the floated <div> are 
+shortened to wrap around the float. The background of the box runs behind 
+the float, as the floated item has been taken out of flow. */
+
+.special {
+  background-color: rgb(79,185,227);
+  padding: 10px;
+  color: #fff;
+}
+
