@@ -30,3 +30,7 @@ the float, as the floated item has been taken out of flow. */
   color: #fff;
 }
 
+.cleared {
+  clear: left;
+}
+
