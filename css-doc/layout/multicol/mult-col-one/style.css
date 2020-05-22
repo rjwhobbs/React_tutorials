@@ -6,4 +6,5 @@
   /* the container needs to be divisible by this amount though? */
   column-width: 200px;
   column-gap: 50px;
+  column-rule: 4px dotted rgb(79, 185, 227);
 }
