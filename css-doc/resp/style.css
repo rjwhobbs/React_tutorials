@@ -1,0 +1,33 @@
+div {
+  font-size: 10px
+}
+
+@media (min-width: 450px) {
+  div {
+    font-size: 30px
+  }
+}
+
+@media (min-width: 576px) {
+  div {
+    font-size: 40px
+  }
+}
+
+@media (min-width: 700px) {
+  div {
+    font-size: 50px
+  }
+}
+
+@media (min-width: 900px) {
+  div {
+    font-size: 60px
+  }
+}
+
+@media (min-width: 1200px) {
+  div {
+    font-size: 100px
+  }
+}
