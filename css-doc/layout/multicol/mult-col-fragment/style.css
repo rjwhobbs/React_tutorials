@@ -1,0 +1,24 @@
+body {
+  /* so you can use width and max-width at the same time? */
+  width: 90%;
+  max-width: 900px;
+  margin: 2em auto;
+  font: .9em/1.2 Arial, Helvetica, sans-serif;
+}            
+
+.container {
+  /* column-width: 250px; */
+  column-gap: 20px;
+  column-count: 3;
+
+}
+
+.card {
+  break-inside: avoid;
+  /* Same thing but for older browsers */
+  page-break-inside: avoid;
+  background-color: rgb(207, 232, 220);
+  border: 2px solid rgb(79, 185, 227);
+  padding: 10px;
+  margin: 0 0 1em 0;
+}
