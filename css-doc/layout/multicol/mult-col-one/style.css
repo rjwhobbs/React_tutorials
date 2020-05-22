@@ -1,6 +1,7 @@
 .container {
-  /* With more than needed cols it seems to over
-  flow the content to the left over cols */
   /* column-count: 5; */
-  column-count: 3;
+  /* column-count: 3; */
+  /* gives you as many cols of this width as possible 
+  ie smaller screens get less cols than bigger ones */
+  column-width: 200px;
 }
