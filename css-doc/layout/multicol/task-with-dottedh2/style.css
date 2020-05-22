@@ -14,8 +14,10 @@ body {
 }
 
 .box {
+  /* for subhead */
   text-align: center;
   margin: 1em 0;
+  column-span: all;
 }
 
 .box h2 {
