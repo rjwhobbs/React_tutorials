@@ -1,0 +1,17 @@
+body {
+  max-width: 60%;
+  margin: 20px auto;
+  background-color: lightgrey;
+}
+
+.viewport-only {
+  font-size: 6vw;
+}
+
+/* There is a solution, and it involves using calc(). If you 
+add the vw unit to a value set using a fixed size such as ems 
+or rems then the text will still be zoomable. Essentially, 
+the vw unit adds on top of that zoomed value: */
+.viewport-with-px {
+  font-size: calc(30px + 4vw);
+}
