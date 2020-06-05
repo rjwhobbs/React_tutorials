@@ -2,16 +2,8 @@
 
 # dependencies
 /node_modules
-/old-stuff/node_modules
-/learn-react-ts/my-typescript-app/node_modules
-/learn-react-ts/connect-four-game/my-app/node_modules
-/learn-react-ts/test-api/node_modules
-/learn-react-ts/dynamic-app-prac/node_modules
-/learn-react-ts/nav-test/node_modules
-/react-doc/my-app/node_modules
 /.pnp
 .pnp.js
-/.vscode
 
 # testing
 /coverage

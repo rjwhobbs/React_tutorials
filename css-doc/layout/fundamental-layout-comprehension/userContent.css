@@ -1,0 +1,3 @@
+@-moz-document url-prefix(about:home), url-prefix(about:newtab) {
+  body {background-color: grey; } 
+}
