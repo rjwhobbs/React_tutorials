@@ -52,7 +52,7 @@ class EventListener extends Component {
 					Args
 				</button>
 				<div>
-					{ undefined && 88}
+					{ 1 > 0 && 88}
 				</div>
 			</>
     );
