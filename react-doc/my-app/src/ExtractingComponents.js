@@ -1,5 +1,15 @@
 import React from 'react';
 
+// Example input
+// const comment = {
+// 	date: new Date(),
+// 	text: "This is a commnet",
+// 	author: {
+// 		name: "Joe",
+// 		url: 'https://placekitten.com/g/64/64'
+// 	}
+// }
+
 function formatDate(date) {
   return date.toLocaleDateString();
 }

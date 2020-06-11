@@ -3,21 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Comment from './ExtractingComponents';
 import * as serviceWorker from './serviceWorker';
-
-const comment = {
-	date: new Date(),
-	text: "This is a commnet",
-	author: {
-		name: "Joe",
-		url: 'https://placekitten.com/g/64/64'
-	}
-}
+import Clock from './Clock';
 
 ReactDOM.render(
-		<Comment
-			text={comment.text}
-			date={comment.date} 
-			author={comment.author}
+		<Clock
+			date={new Date()}
 		/>,
 		document.getElementById('root')
 );
