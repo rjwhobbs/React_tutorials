@@ -1,22 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Comment from './ExtractingComponents';
 import * as serviceWorker from './serviceWorker';
 
-function tick() {
-	const el = (
-		<>
-			<h1>My bruzzz!!</h1>
-			<h1>it is {new Date().toLocaleTimeString()}</h1>
-		</>
-	);
-	ReactDOM.render(
-		el,
-		document.getElementById('root')
-	);
-} 
+const comment = {
+	date: new Date(),
+	text: "This is a commnet",
+	author: {
+		name: "Joe",
+		url: 'https://placekitten.com/g/64/64'
+	}
+}
 
-setInterval(tick, 1000);
+ReactDOM.render(
+		<Comment
+			text={comment.text}
+			date={comment.date} 
+			author={comment.author}
+		/>,
+		document.getElementById('root')
+);
+
 
 
 
