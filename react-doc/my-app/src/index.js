@@ -5,9 +5,10 @@ import Comment from './ExtractingComponents';
 import * as serviceWorker from './serviceWorker';
 import Clock from './Clock';
 import EventListener from './EventListener';
+import Page from './RetruningNull';
 
 ReactDOM.render(
-		<EventListener />,
+		<Page />,
 		document.getElementById('root')
 );
 
