@@ -32,6 +32,10 @@ class EventListener extends Component {
 		console.log("ThIsSSS:", this) ;
 	}
 
+	testArgs(id) {
+		console.log("ID: ", id);
+	}
+
   render() {
     return (
 			<>
@@ -40,6 +44,9 @@ class EventListener extends Component {
 				</button>
 				<button onClick={() => this.testThis()}>
 					this
+				</button>
+				<button onClick={this.testArgs.bind(this, "WORDS")}>
+					Args
 				</button>
 			</>
     );
