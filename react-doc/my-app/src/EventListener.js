@@ -45,9 +45,15 @@ class EventListener extends Component {
 				<button onClick={() => this.testThis()}>
 					this
 				</button>
+				{/* This would appear to be the correct way to pass args to 
+				an on click call back, note this only seems to work if you bind this, or use an arrow
+				function, ie you can't bind this in the constructor */}
 				<button onClick={this.testArgs.bind(this, "WORDS")}>
 					Args
 				</button>
+				<div>
+					{ undefined && 88}
+				</div>
 			</>
     );
   }
