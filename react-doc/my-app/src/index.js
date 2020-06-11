@@ -6,9 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import Clock from './Clock';
 
 ReactDOM.render(
-		<Clock
-			date={new Date()}
-		/>,
+		<Clock />,
 		document.getElementById('root')
 );
 
