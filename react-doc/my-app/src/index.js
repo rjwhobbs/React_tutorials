@@ -4,9 +4,10 @@ import './index.css';
 import Comment from './ExtractingComponents';
 import * as serviceWorker from './serviceWorker';
 import Clock from './Clock';
+import EventListener from './EventListener';
 
 ReactDOM.render(
-		<Clock />,
+		<EventListener />,
 		document.getElementById('root')
 );
 
