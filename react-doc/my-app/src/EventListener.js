@@ -52,6 +52,8 @@ class EventListener extends Component {
 					Args
 				</button>
 				<div>
+				{/* It works because in JavaScript, true && expression always evaluates to expression, 
+				and false && expression always evaluates to false. */}
 					{ 1 < 88 && 1 }
 				</div>
 			</>
