@@ -20,11 +20,21 @@ class EventListener extends Component {
 		this.setState(state => ({isToggleOn: !state.isToggleOn }));  
 	}
 
+	// Here 'this' is bound in the onClick callback
+	testThis() {
+		console.log("ThIsSSS:", this) ;
+	}
+
   render() {
     return (
-			<button onClick={this.handleClick}>        
-				{this.state.isToggleOn ? 'ON' : 'OFF'}
-      </button>
+			<>
+				<button onClick={this.handleClick}>        
+					{this.state.isToggleOn ? 'ON' : 'OFF'}
+				</button>
+				<button onClick={() => this.testThis()}>
+					this
+				</button>
+			</>
     );
   }
 }
