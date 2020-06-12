@@ -7,9 +7,10 @@ import Clock from './Clock';
 import EventListener from './EventListener';
 import Page from './RetruningNull';
 import Forms from './Forms';
+import LiftingStateUp from './LiftingStateUp';
 
 ReactDOM.render(
-		<Forms />,
+		<LiftingStateUp />,
 		document.getElementById('root')
 );
 
