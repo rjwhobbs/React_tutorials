@@ -6,14 +6,12 @@ import * as serviceWorker from './serviceWorker';
 import Clock from './Clock';
 import EventListener from './EventListener';
 import Page from './RetruningNull';
+import Forms from './Forms';
 
 ReactDOM.render(
-		<Page />,
+		<Forms />,
 		document.getElementById('root')
 );
-
-
-
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
