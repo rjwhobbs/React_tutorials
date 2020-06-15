@@ -8,9 +8,10 @@ import EventListener from './EventListener';
 import Page from './RetruningNull';
 import Forms from './Forms';
 import LiftingStateUp from './LiftingStateUp';
+import PropsChild from './PropsChild';
 
 ReactDOM.render(
-		<LiftingStateUp />,
+		<PropsChild />,
 		document.getElementById('root')
 );
 
