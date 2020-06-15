@@ -9,9 +9,10 @@ import Page from './RetruningNull';
 import Forms from './Forms';
 import LiftingStateUp from './LiftingStateUp';
 import PropsChild from './PropsChild';
+import Composition from './Composition';
 
 ReactDOM.render(
-		<PropsChild />,
+		<Composition />,
 		document.getElementById('root')
 );
 
