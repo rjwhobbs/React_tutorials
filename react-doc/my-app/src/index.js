@@ -10,9 +10,10 @@ import Forms from './Forms';
 import LiftingStateUp from './LiftingStateUp';
 import PropsChild from './PropsChild';
 import Composition from './Composition';
+import ThinkingInReact from './ThinkingInReact';
 
 ReactDOM.render(
-		<Composition />,
+		<ThinkingInReact />,
 		document.getElementById('root')
 );
 
