@@ -79,6 +79,12 @@ class SearchBar extends React.Component {
 	constructor(props) {
 		super(props);
 	}
+
+	onChange = (e) => {
+		// One may want to do things here
+		this.props.onChange(e);
+	}
+
   render() {
     const filterText = this.props.filterText;
     const inStockOnly = this.props.inStockOnly;
@@ -86,12 +92,13 @@ class SearchBar extends React.Component {
     return (
       <form>
         <input
-					onChange={this.props.onChange}
+					onChange={this.onChange}
           type="text"
           placeholder="Search..."
           value={filterText} />
         <p>
           <input
+						onChange={this.props.onCheck}
             type="checkbox"
             checked={inStockOnly} />
           {' '}
@@ -116,6 +123,7 @@ class FilterableProductTable extends React.Component {
       <div>
         <SearchBar
 					onChange={this.onChange}
+					onCheck={this.onCheck}
           filterText={this.state.filterText}
           inStockOnly={this.state.inStockOnly} />
         <ProductTable
@@ -129,6 +137,14 @@ class FilterableProductTable extends React.Component {
 	onChange = (e) => {
 		e.preventDefault();
 		this.setState({filterText: e.target.value});
+	}
+
+	onCheck = (e) => {
+		console.log("XXXXXX");
+		// e.preventDefault();
+		this.setState((state) => ({
+			inStockOnly: !state.inStockOnly
+		}));
 	}
 }
 
