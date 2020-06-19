@@ -56,8 +56,7 @@ class ProductTable extends React.Component {
       rows.push(
         <ProductRow
           product={product}
-          key={product.name}
-        />
+          key={product.name} />
       );
 			lastCategory = product.category;
     });
@@ -77,6 +76,9 @@ class ProductTable extends React.Component {
 }
 
 class SearchBar extends React.Component {
+	constructor(props) {
+		super(props);
+	}
   render() {
     const filterText = this.props.filterText;
     const inStockOnly = this.props.inStockOnly;
@@ -84,6 +86,7 @@ class SearchBar extends React.Component {
     return (
       <form>
         <input
+					onChange={this.props.onChange}
           type="text"
           placeholder="Search..."
           value={filterText} />
@@ -112,17 +115,21 @@ class FilterableProductTable extends React.Component {
     return (
       <div>
         <SearchBar
+					onChange={this.onChange}
           filterText={this.state.filterText}
-          inStockOnly={this.state.inStockOnly}
-        />
+          inStockOnly={this.state.inStockOnly} />
         <ProductTable
           products={this.props.products}
           filterText={this.state.filterText}
-          inStockOnly={this.state.inStockOnly}
-        />
+          inStockOnly={this.state.inStockOnly} />
       </div>
     );
-  }
+	}
+	
+	onChange = (e) => {
+		e.preventDefault();
+		this.setState({filterText: e.target.value});
+	}
 }
 
 
