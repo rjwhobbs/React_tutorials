@@ -85,6 +85,12 @@ class SearchBar extends React.Component {
 		this.props.onChange(e);
 	}
 
+	onCheck = (e) => {
+		// Why is preventDefault breaking this function? 
+		// e.preventDefault(); 
+		this.props.onCheck(e);
+	}
+
   render() {
     const filterText = this.props.filterText;
     const inStockOnly = this.props.inStockOnly;
@@ -98,7 +104,7 @@ class SearchBar extends React.Component {
           value={filterText} />
         <p>
           <input
-						onChange={this.props.onCheck}
+						onChange={this.onCheck}
             type="checkbox"
             checked={inStockOnly} />
           {' '}

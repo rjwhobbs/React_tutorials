@@ -11,9 +11,10 @@ import LiftingStateUp from './LiftingStateUp';
 import PropsChild from './PropsChild';
 import Composition from './Composition';
 import ThinkingInReact from './ThinkingInReact';
+import App from './Context/App';
 
 ReactDOM.render(
-		<ThinkingInReact />,
+		<App />,
 		document.getElementById('root')
 );
 
