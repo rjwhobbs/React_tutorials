@@ -11,7 +11,8 @@ import LiftingStateUp from './LiftingStateUp';
 import PropsChild from './PropsChild';
 import Composition from './Composition';
 import ThinkingInReact from './ThinkingInReact';
-import App from './Context/App';
+// import App from './Context/App';
+import App from './DynamicContext/App';
 
 ReactDOM.render(
 		<App />,
