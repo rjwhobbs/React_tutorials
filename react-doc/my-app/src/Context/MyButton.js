@@ -10,7 +10,7 @@ class MyButton extends Component {
 		console.log("Search button pressed", this.context);
 	}
 
-	static contextType = ThemeContext;
+	// static contextType = ThemeContext;
 
 	render() {
 		return (
@@ -21,5 +21,8 @@ class MyButton extends Component {
 		);
 	}
 }
+
+// This has the same effect as the non member declaration above.
+MyButton.contextType = ThemeContext;
 
 export default MyButton;
