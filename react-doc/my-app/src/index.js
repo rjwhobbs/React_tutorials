@@ -15,7 +15,7 @@ import ThinkingInReact from './ThinkingInReact';
 import App from './DynamicContext/App';
 
 ReactDOM.render(
-		<PropsChild />,
+		<Forms />,
 		document.getElementById('root')
 );
 

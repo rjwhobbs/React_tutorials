@@ -23,9 +23,10 @@ class Forms extends Component {
 		return (
 			<div>
 				<form onSubmit={this.handleSubmit}>
-					<label htmlFor="">
+					{/* Some basic accessibility */}
+					<label htmlFor="submitForm">
 						Name:
-						<input type="text"
+						<input id="submitForm" type="text"
 						value={this.state.value}
 						onChange={this.handleChange}
 						/>
