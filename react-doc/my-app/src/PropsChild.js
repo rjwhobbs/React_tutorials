@@ -7,9 +7,11 @@ function Parent(props) {
 
 	console.log(props);
 
+	// So spearding children props as an attribute is a thing?
 	return (
-		<div style={style}>
-			{props.children}
+		<div 
+			{...props}
+			style={style}>
 		</div>
 	)
 }
