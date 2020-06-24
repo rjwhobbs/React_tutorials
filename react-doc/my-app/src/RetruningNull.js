@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+// Use this method to return nothing if needed
 function WarningBanner(props) {
 	if (!props.warn) {
 		return null;  
