@@ -15,9 +15,10 @@ import ThinkingInReact from './ThinkingInReact';
 // import App from './DynamicContext/App';
 // import App from './FuncInContext/App';
 import App from './ConsumeMultiContexts/App';
+import MouseTracker from './RenderProps/MouseTracker';
 
 ReactDOM.render(
-		<App />,
+		<MouseTracker />,
 		document.getElementById('root')
 );
 
