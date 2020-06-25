@@ -13,7 +13,9 @@ function ThemeTogglerButton() {
 			prop" pattern where we provide a regular function 
 			as a child that returns some JSX to render. 
 			https://www.freecodecamp.org/news/react-context-in-5-minutes/*/}
-      {({theme, toggleTheme}) => (        
+			{/* Ah yes, because es6 has that "if val has the same name as prop thing"
+		 		and also it just returns, the arrow function*/}
+      {({theme: theme, toggleTheme: toggleTheme}) => (        
 					<button
           onClick={toggleTheme}
           style={{backgroundColor: theme.background}}>
