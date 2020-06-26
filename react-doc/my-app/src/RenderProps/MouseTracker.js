@@ -25,13 +25,15 @@ class Mouse extends React.Component {
   }
 
   render() {
+		const props = this.props
     return (
       <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
         {/*
           Instead of providing a static representation of what <Mouse> renders,
           use the `render` prop to dynamically determine what to render.
         */}
-        {this.props.render(this.state)}
+				{this.props.render(this.state)}
+				{/* {this.props.children(this.state)} */}
       </div>
     );
   }
@@ -42,14 +44,19 @@ class MouseTracker extends React.Component {
     return (
       <div>
         <h1>Move the mouse around!</h1>
-        {/* <Mouse render={mouse => (
+        <Mouse render={mouse => (
           <Cat mouse={mouse} />
-        )}/> */}
-        <Mouse render={mouse => {
+        )}/>
+        {/* <Mouse render={mouse => {
 					// If you want code here
 					return (
           <Cat mouse={mouse} />
-        )}}/>
+        )}}/> */}
+				{/* <Mouse>
+					{mouse => (
+						<p>the position is {mouse.x} and {mouse.y}</p>
+					)}
+				</Mouse> */}
       </div>
     );
   }
