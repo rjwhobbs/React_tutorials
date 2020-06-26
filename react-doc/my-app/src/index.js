@@ -18,9 +18,10 @@ import ThinkingInReact from './ThinkingInReact';
 // import App from './ErrorBoundaries/ErrorBoundary';
 import App from './RefForwarding/App';
 import MouseTracker from './RenderProps/MouseTracker';
+import HOC from './HOC/HOC'
 
 ReactDOM.render(
-		<App />,
+		<HOC />,
 		document.getElementById('root')
 );
 
