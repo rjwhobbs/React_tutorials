@@ -13,12 +13,13 @@ import Composition from './Composition';
 import ThinkingInReact from './ThinkingInReact';
 // import App from './Context/App';
 // import App from './DynamicContext/App';
-import App from './FuncInContext/App';
+// import App from './FuncInContext/App';
 // import App from './ConsumeMultiContexts/App';
+import App from './ErrorBoundaries/ErrorBoundary';
 import MouseTracker from './RenderProps/MouseTracker';
 
 ReactDOM.render(
-		<MouseTracker />,
+		<App />,
 		document.getElementById('root')
 );
 
