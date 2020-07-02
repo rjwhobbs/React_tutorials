@@ -20,9 +20,10 @@ import App from './RefForwarding/App';
 import MouseTracker from './RenderProps/MouseTracker';
 import HOC from './HOC/HOCtwo'
 import PracOne from './JSXprac/PracOne';
+import SCUPrac from './PerformancePrac/SCUPrac';
 
 ReactDOM.render(
-		<PracOne />,
+		<SCUPrac />,
 		document.getElementById('root')
 );
 
