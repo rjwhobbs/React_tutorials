@@ -15,12 +15,11 @@ let GetAnimals = new GetPics;
 
 
 function WithSub(WrappedComp, selectAnimal) {
-	console.log("XXXXXXX");
 	return class extends Component {
 		constructor(props) {
 			super(props);
 			this.state = {
-				url: selectAnimal(GetAnimals, props)
+				url: selectAnimal(GetAnimals)
 			}
 		}
 

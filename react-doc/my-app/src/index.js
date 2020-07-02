@@ -19,9 +19,10 @@ import ThinkingInReact from './ThinkingInReact';
 import App from './RefForwarding/App';
 import MouseTracker from './RenderProps/MouseTracker';
 import HOC from './HOC/HOCtwo'
+import PracOne from './JSXprac/PracOne';
 
 ReactDOM.render(
-		<HOC />,
+		<PracOne />,
 		document.getElementById('root')
 );
 
