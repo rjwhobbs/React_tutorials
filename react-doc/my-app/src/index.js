@@ -22,9 +22,10 @@ import HOC from './HOC/HOCtwo'
 import PracOne from './JSXprac/PracOne';
 import SCUPrac from './PerformancePrac/SCUPrac';
 import PortalsOne from './Portals/PortalsOne';
+import RefTrickOne from './RefTricks/RefTrickOne';
 
 ReactDOM.render(
-		<PortalsOne />,
+		<RefTrickOne />,
 		document.getElementById('root')
 );
 
