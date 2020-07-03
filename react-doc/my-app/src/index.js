@@ -21,9 +21,10 @@ import MouseTracker from './RenderProps/MouseTracker';
 import HOC from './HOC/HOCtwo'
 import PracOne from './JSXprac/PracOne';
 import SCUPrac from './PerformancePrac/SCUPrac';
+import PortalsOne from './Portals/PortalsOne';
 
 ReactDOM.render(
-		<SCUPrac />,
+		<PortalsOne />,
 		document.getElementById('root')
 );
 
