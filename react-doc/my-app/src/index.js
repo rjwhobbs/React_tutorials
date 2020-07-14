@@ -23,9 +23,10 @@ import PracOne from './JSXprac/PracOne';
 import SCUPrac from './PerformancePrac/SCUPrac';
 import PortalsOne from './Portals/PortalsOne';
 import RefTrickOne from './RefTricks/RefTrickOne';
+import TestModal from './TestModal/TestModal';
 
 ReactDOM.render(
-		<RefTrickOne />,
+		<TestModal />,
 		document.getElementById('root')
 );
 
