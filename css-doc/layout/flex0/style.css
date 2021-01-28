@@ -15,7 +15,7 @@ available space. After that, the rest of the available
 space will be shared out according to the proportion 
 units." */
 article {
-  flex: 1 200px;
+  flex: 1;
   padding: 10px;
   margin: 10px;
   background: aqua;
