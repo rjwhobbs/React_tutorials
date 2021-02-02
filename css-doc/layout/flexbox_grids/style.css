@@ -21,8 +21,8 @@ auto. As our element has a width set, auto will use that width
 as the flex-basis value. */
 
 .col {
-  margin-left: 2.08333333%;
-  margin-bottom: 1em;
+  /* margin-left: 2.08333333%;
+  margin-bottom: 1em; */
   width: 6.25%;
   flex: 1 1 auto;
   background: rgb(255,150,150);

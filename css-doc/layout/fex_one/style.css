@@ -3,16 +3,21 @@
 }
 
 /* Makes divs split equally */
-.wrapper > div {
-  flex: 1;
-}
-
-/* .box1 {
-  flex: 0.5;
-}
-.box2 {
-  flex: 1;
-}
-.box3 {
+/* .wrapper > div {
   flex: 1;
 } */
+
+.box1 {
+    width: 80%
+}
+/* .box2 {
+  flex: 1;
+} */
+.box3 {
+    width:20%;
+    margin-left: auto
+}
+
+.icon {
+    float: right;
+}
